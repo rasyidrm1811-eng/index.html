@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Sayangg💖</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background: pink;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: Arial, sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+}
+
+/* HALAMAN 1 */
+#page1 h1{
+    font-family:'Pacifico', cursive;
+    font-size:60px;
+    color:#ff2f92;
+    text-shadow:2px 2px white;
+}
+
+#clickText{
+    margin-top:20px;
+    font-size:20px;
+    color:#fff;
+    cursor:pointer;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink{
+    0%,100%{opacity:1;}
+    50%{opacity:0.3;}
+}
+
+/* LOVE FIREWORK */
+.heart{
+    position:absolute;
+    color:red;
+    font-size:20px;
+    animation: fly 3s linear infinite;
+}
+
+@keyframes fly{
+    0%{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-600px) scale(0);
+        opacity:0;
+    }
+}
+
+/* HALAMAN 2 */
+#page2{
+    display:none;
+    animation: fade 1.5s;
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+#page2 img{
+    width:260px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    animation: zoom 1.5s;
+}
+
+@keyframes zoom{
+    from{transform:scale(0.5);}
+    to{transform:scale(1);}
+}
+
+.quote{
+    margin-top:20px;
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    font-family:'Comic Neue', cursive;
+    font-size:20px;
+    color:#ff2f92;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HALAMAN 1 -->
+    <div id="page1">
+        <h1>hAI SAYANGG 💖</h1>
+        <div id="clickText" onclick="openPhoto()">Click Here ✨</div>
+    </div>
+
+    <!-- HALAMAN 2 -->
+    <div id="page2">
+        <img src="foto.jpg" alt="Foto">
+        <div class="quote">
+            “I LOVE YOU 💕”
+        </div>
+    </div>
+
+</div>
+
+<script>
+let clicked = false;
+
+function openPhoto(){
+    if(clicked) return;
+    clicked = true;
+
+    document.getElementById("page1").style.display="none";
+    document.getElementById("page2").style.display="block";
+}
+
+/* FIREWORK LOVE */
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),3000);
+}
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
